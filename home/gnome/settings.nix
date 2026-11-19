@@ -5,15 +5,6 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
-    "apps/seahorse/listing" = {
-      keyrings-selected = [ "secret-service:///org/freedesktop/secrets/collection/login" ];
-    };
-
-    "apps/seahorse/windows/key-manager" = {
-      height = 476;
-      width = 600;
-    };
-
     "org/gnome/Console" = {
       last-window-maximised = false;
       last-window-size = mkTuple [ 732 528 ];
@@ -130,10 +121,6 @@ with lib.hm.gvariant;
       initial-size-file-chooser = mkTuple [ 890 550 ];
     };
 
-    "org/gnome/portal/filechooser/md/obsidian/Obsidian" = {
-      last-folder-path = "/home/akurane/Documents";
-    };
-
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-schedule-automatic = false;
     };
@@ -167,6 +154,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
+      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" ];
       favorite-apps = [ "helium.desktop" "com.mitchellh.ghostty.desktop" "org.gnome.Nautilus.desktop" "org.telegram.desktop.desktop" "mullvad-vpn.desktop" "dev.zed.Zed.desktop" ];
       welcome-dialog-last-shown-version = "50.6";
     };
