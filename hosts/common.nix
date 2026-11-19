@@ -16,6 +16,13 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  # GNOME provides these portal units. Start them with the graphical session.
+  systemd.user.services = {
+    xdg-desktop-portal.wantedBy = [ "graphical-session.target" ];
+    xdg-desktop-portal-gnome.wantedBy = [ "graphical-session.target" ];
+    xdg-desktop-portal-gtk.wantedBy = [ "graphical-session.target" ];
+  };
+
   # PipeWire audio with PulseAudio compatibility and support for 32-bit ALSA apps.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

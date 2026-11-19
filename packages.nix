@@ -9,7 +9,6 @@ let
     mullvad-vpn
     curl
     telegram-desktop
-    equibop
     fastfetch
     codex
     bubblewrap
@@ -20,6 +19,10 @@ let
     zed-editor
     zip
     unzip
+    adw-gtk3
+    fzf
+    vesktop
+    ffmpeg
   ];
 
   perHost = {

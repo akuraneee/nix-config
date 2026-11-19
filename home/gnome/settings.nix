@@ -52,6 +52,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/interface" = {
       accent-color = "slate";
       color-scheme = "prefer-dark";
+      gtk-theme = "adw-gtk3-dark";
     };
 
     "org/gnome/desktop/notifications" = {
