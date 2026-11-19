@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   hardware.graphics.enable = true;
@@ -48,25 +48,4 @@
 
   # Git module enabling
   programs.git.enable = true;
-
-  # Packages available to all users
-  environment.systemPackages = with pkgs; [
-    neovim
-    ddcutil
-    wget
-    gearlever
-    ghostty
-    mullvad-vpn
-    curl
-    telegram-desktop
-    equibop
-    fastfetch
-    codex
-    bubblewrap
-    dconf2nix
-    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-    prismlauncher
-    obsidian
-    zed-editor
-  ];
 }

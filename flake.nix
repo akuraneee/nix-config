@@ -13,12 +13,15 @@
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
-      mkHost = hostModule: nixpkgs.lib.nixosSystem {
+      mkHost = host: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/common.nix
-          hostModule
+          ./hosts/${host}/configuration.nix
+          ({ pkgs, ... }: {
+            environment.systemPackages = import ./packages.nix { inherit pkgs inputs host; };
+          })
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -30,8 +33,8 @@
     in
     {
       nixosConfigurations = {
-        nixos = mkHost ./hosts/pc/configuration.nix;
-        laptop = mkHost ./hosts/laptop/configuration.nix;
+        nixos = mkHost "pc";
+        laptop = mkHost "laptop";
       };
     };
 }
