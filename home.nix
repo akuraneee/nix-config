@@ -8,6 +8,7 @@
     ./home/starship
     ./home/telegram
     ./home/zed
+    ./home/git
   ];
 
   home.username = "akurane";

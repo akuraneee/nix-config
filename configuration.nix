@@ -69,6 +69,9 @@
   # Allow unfree packages and enable Nix flakes.
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # Git module enabling
+  programs.git.enable = true;
 
   # Packages available to all users
   environment.systemPackages = with pkgs; [
@@ -78,7 +81,6 @@
     gearlever
     ghostty
     mullvad-vpn
-    git
     curl
     telegram-desktop
     equibop
