@@ -55,7 +55,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-console" "gnome-power-panel" "mullvad-vpn" "org-telegram-desktop" "com-mitchellh-ghostty" "gnome-about-panel" "helium" ];
+      application-children = [ "org-gnome-console" "gnome-power-panel" "mullvad-vpn" "org-telegram-desktop" "com-mitchellh-ghostty" "gnome-about-panel" "helium" "steam" ];
     };
 
     "org/gnome/desktop/notifications/application/com-mitchellh-ghostty" = {
@@ -84,6 +84,10 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/notifications/application/org-telegram-desktop" = {
       application-id = "org.telegram.desktop.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/steam" = {
+      application-id = "steam.desktop";
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
@@ -131,6 +135,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" ];
+      mic-mute = [ "Pause" ];
       screensaver = [ "<Shift><Super>l" ];
     };
 
@@ -154,13 +159,18 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" ];
+      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" "appindicatorsupport@rgcjonas.gmail.com" "clipboard-indicator@tudmotu.com" ];
       favorite-apps = [ "helium.desktop" "com.mitchellh.ghostty.desktop" "org.gnome.Nautilus.desktop" "org.telegram.desktop.desktop" "mullvad-vpn.desktop" "dev.zed.Zed.desktop" ];
       welcome-dialog-last-shown-version = "50.6";
     };
 
+    "org/gnome/shell/extensions/clipboard-indicator" = {
+      toggle-menu = [ "<Super>v" ];
+    };
+
     "org/gnome/shell/keybindings" = {
       show-screenshot-ui = [ "<Shift><Super>s" ];
+      toggle-message-tray = [];
     };
 
     "org/gnome/shell/world-clocks" = {

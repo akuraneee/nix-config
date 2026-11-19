@@ -18,11 +18,14 @@ let
     prismlauncher
     obsidian
     zed-editor
+    zip
+    unzip
   ];
 
   perHost = {
     pc = with pkgs; [ 
       ddcutil 
+      feishin
     ];
 
     laptop = with pkgs; [ 
