@@ -21,8 +21,12 @@ let
   ];
 
   perHost = {
-    pc = [ pkgs.ddcutil ];
-    laptop = [ ];
+    pc = with pkgs; [ 
+      ddcutil 
+    ];
+
+    laptop = with pkgs; [ 
+    ];
   };
 in
 common ++ perHost.${host}
