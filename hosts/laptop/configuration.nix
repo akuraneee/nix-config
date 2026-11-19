@@ -13,6 +13,18 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "btrfs" ];
+
+  assertions = [
+    {
+      assertion = ((config.fileSystems."/" or { }).fsType or null) == "btrfs";
+      message = "The laptop profile requires a Btrfs root filesystem.";
+    }
+    {
+      assertion = config.boot.initrd.luks.devices != { };
+      message = "Configure the laptop's LUKS2 root device in hosts/laptop/hardware-configuration.nix.";
+    }
+  ];
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   services.xserver.videoDrivers = [ "nvidia" ];
