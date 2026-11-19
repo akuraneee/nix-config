@@ -52,6 +52,10 @@
   # Printing with CUPS
   services.printing.enable = true;
 
+  # Monitor brightness via DDC and Steam runtime integration
+  hardware.i2c.enable = true;
+  programs.steam.enable = true;
+
   # Local user and shell
   programs.fish.enable = true;
   users.users.akurane = {
@@ -69,13 +73,12 @@
   # Packages available to all users
   environment.systemPackages = with pkgs; [
     neovim
-    fish
+    ddcutil
     wget
     gearlever
     ghostty
     mullvad-vpn
     git
-    starship
     curl
     telegram-desktop
     equibop
@@ -84,7 +87,6 @@
     bubblewrap
     dconf2nix
     inputs.helium.packages.${system}.default
-    steam
     prismlauncher
     obsidian
     zed-editor

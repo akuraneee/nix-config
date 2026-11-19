@@ -64,15 +64,23 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-console" "gnome-power-panel" "mullvad-vpn" "org-telegram-desktop" "com-mitchellh-ghostty" ];
+      application-children = [ "org-gnome-console" "gnome-power-panel" "mullvad-vpn" "org-telegram-desktop" "com-mitchellh-ghostty" "gnome-about-panel" "helium" ];
     };
 
     "org/gnome/desktop/notifications/application/com-mitchellh-ghostty" = {
       application-id = "com.mitchellh.ghostty.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/gnome-about-panel" = {
+      application-id = "gnome-about-panel.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
       application-id = "gnome-power-panel.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/helium" = {
+      application-id = "helium.desktop";
     };
 
     "org/gnome/desktop/notifications/application/mullvad-vpn" = {
@@ -87,8 +95,21 @@ with lib.hm.gvariant;
       application-id = "org.telegram.desktop.desktop";
     };
 
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+      speed = -0.7;
+    };
+
+    "org/gnome/desktop/peripherals/touchpad" = {
+      two-finger-scrolling-enabled = true;
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
+      minimize = [ "<Super>z" ];
+      switch-to-workspace-left = [ "<Super>h" ];
+      switch-to-workspace-right = [ "<Super>l" ];
+      toggle-fullscreen = [ "<Super>f" ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -104,17 +125,31 @@ with lib.hm.gvariant;
       migrated-gtk-settings = true;
     };
 
+    "org/gnome/nautilus/window-state" = {
+      initial-size = mkTuple [ 890 550 ];
+      initial-size-file-chooser = mkTuple [ 890 550 ];
+    };
+
+    "org/gnome/portal/filechooser/md/obsidian/Obsidian" = {
+      last-folder-path = "/home/akurane/Documents";
+    };
+
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-schedule-automatic = false;
     };
 
+    "org/gnome/settings-daemon/plugins/housekeeping" = {
+      donation-reminder-last-shown = mkInt64 1795086096926436;
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" ];
+      screensaver = [ "<Shift><Super>l" ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>w";
-      command = "helium-browser";
+      command = "helium";
       name = "helum";
     };
 
@@ -132,7 +167,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      favorite-apps = [ "helium.desktop" "com.mitchellh.ghostty.desktop" "org.gnome.Nautilus.desktop" "org.telegram.desktop.desktop" ];
+      favorite-apps = [ "helium.desktop" "com.mitchellh.ghostty.desktop" "org.gnome.Nautilus.desktop" "org.telegram.desktop.desktop" "mullvad-vpn.desktop" "dev.zed.Zed.desktop" ];
       welcome-dialog-last-shown-version = "50.6";
     };
 

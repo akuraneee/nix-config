@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./extensions.nix
@@ -5,4 +7,9 @@
   ];
 
   dconf.enable = true;
+
+  home.packages = with pkgs; [
+    gnome-tweaks
+    gnome-extension-manager
+  ];
 }

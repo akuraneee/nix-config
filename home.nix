@@ -1,8 +1,13 @@
-{ pkgs, ... }:
-
 {
   imports = [
+    ./home/fish
+    ./home/ghostty
     ./home/gnome
+    ./home/helium
+    ./home/mullvad
+    ./home/starship
+    ./home/telegram
+    ./home/zed
   ];
 
   home.username = "akurane";
@@ -10,9 +15,5 @@
   home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    gnome-tweaks
-    gnome-extension-manager
-  ];
+  xdg.mimeApps.enable = true;
 }
