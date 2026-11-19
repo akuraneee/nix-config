@@ -5,6 +5,7 @@
     clipboard-indicator
     appindicator
     ddc-brightness-controller
+    caffeine
   ];
 
 
@@ -15,6 +16,7 @@
       pkgs.gnomeExtensions.appindicator.extensionUuid
       pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
       pkgs.gnomeExtensions.ddc-brightness-controller.extensionUuid
+      pkgs.gnomeExtensions.caffeine.extensionUuid
           ];
   };
 }
