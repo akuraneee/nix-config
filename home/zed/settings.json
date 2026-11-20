@@ -1,0 +1,27 @@
+{
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "buffer_font_size": 15,
+  "theme": {
+    "dark": "macOS Classic Dark",
+    "light": "Ayu Light",
+    "mode": "system"
+  },
+  "ui_font_size": 16,
+  "vim_mode": true
+}

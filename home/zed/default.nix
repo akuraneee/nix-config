@@ -1,12 +1,21 @@
+{ config, lib, ... }:
+
+let
+  settingsSource = "${config.home.homeDirectory}/nixos/home/zed/settings.json";
+  settingsDir = "${config.xdg.configHome}/zed";
+in
 {
-  xdg.configFile."zed/settings.json".text = builtins.toJSON {
-    vim_mode = true;
-    ui_font_size = 16;
-    buffer_font_size = 15;
-    theme = {
-      mode = "system";
-      light = "Ayu Light";
-      dark = "macOS Classic Dark";
-    };
-  };
+  # Zed saves UI changes to the resolved path, so link directly to the checkout.
+  home.activation.linkZedSettings = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    zedSettingsSource=${lib.escapeShellArg settingsSource}
+    zedConfigDir=${lib.escapeShellArg settingsDir}
+    zedSettingsTarget="$zedConfigDir/settings.json"
+    if [[ ! -f "$zedSettingsSource" ]]; then
+      warnEcho "Zed settings source is missing: $zedSettingsSource"
+    elif [[ "$(readlink -- "$zedSettingsTarget")" != "$zedSettingsSource" ]]; then
+      run mkdir -p -- "$zedConfigDir"
+      run ln -sT --backup=numbered -- "$zedSettingsSource" "$zedSettingsTarget"
+    fi
+    unset zedSettingsSource zedConfigDir zedSettingsTarget
+  '';
 }

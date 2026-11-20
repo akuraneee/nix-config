@@ -37,7 +37,6 @@
   services.printing.enable = true;
 
   # Steam runtime integration
-  programs.steam.enable = true;
 
   # Local user and shell
   programs.fish.enable = true;
@@ -55,4 +54,5 @@
 
   # Git module enabling
   programs.git.enable = true;
+
 }

@@ -7,6 +7,7 @@
   ];
 
   dconf.enable = true;
+  xdg.mimeApps.defaultApplications."inode/directory" = [ "org.gnome.Nautilus.desktop" ];
 
   # Mutter's GTK4 helper draws the server-side titlebars for XWayland windows.
   xdg.configFile."gtk-4.0/gtk.css".text = ''

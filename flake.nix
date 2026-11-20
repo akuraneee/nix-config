@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, helium, ... }@inputs:
     let
       mkHost = host: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

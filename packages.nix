@@ -23,6 +23,12 @@ let
     fzf
     vesktop
     ffmpeg
+    uv
+    python3
+    flatpak
+    rustc
+    cargo
+    gcc
   ];
 
   perHost = {

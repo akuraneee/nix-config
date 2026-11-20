@@ -13,6 +13,9 @@
   hardware.i2c.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  programs.steam.enable = true;
+  programs.nix-ld.enable = true;
+
   hardware.nvidia = {
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
