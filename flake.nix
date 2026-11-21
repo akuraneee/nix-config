@@ -9,9 +9,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, helium, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, helium,   ... }@inputs:
     let
       mkHost = host: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

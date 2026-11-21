@@ -35,6 +35,8 @@ let
     pc = with pkgs; [ 
       ddcutil 
       feishin
+      obs-studio
+      upscayl
     ];
 
     laptop = with pkgs; [ 
